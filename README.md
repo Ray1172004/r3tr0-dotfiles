@@ -1,108 +1,97 @@
 <div align="center">
 
 # 🌙 R3TR0 Dotfiles
+**Minimal purple-themed Hyprland desktop for Arch Linux — configured in Lua.**
 
-**A minimal, purple-themed Hyprland rice for Arch Linux, powered by Lua.**
+[English](README.md) · [Español](README.es.md)
 
-[![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat-square&logo=archlinux&logoColor=white)](https://archlinux.org/)
-[![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-B49AFF?style=flat-square)](https://hypr.land/)
-[![Status](https://img.shields.io/badge/Status-Work_in_Progress-aaaaaa?style=flat-square)](#project-status)
+![Arch Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=archlinux&logoColor=white) ![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-B49AFF) ![Status](https://img.shields.io/badge/Status-Beta-orange)
 
-*Dark surfaces · lavender accents · rounded corners · practical keyboard-driven workflows*
+*Dark surfaces · lavender accents · custom menus · keyboard-driven workflow*
 
 </div>
 
-## ✨ Overview
+## About
 
-R3TR0 is my personal Arch Linux desktop setup built around **Hyprland with Lua configuration**. It combines a clean, dark interface with custom Rofi menus and keyboard-focused workflows.
+R3TR0 is my personal Arch Linux desktop customization (rice). It uses **Hyprland's Lua configuration** rather than the usual hyprlang configuration and includes an integrated Rofi control center.
 
-> [!NOTE]
-> **Project status — documentation stage.** The original configuration files and screenshots have not been uploaded yet. This repository is **not ready for installation**. The lists below describe the setup intended for this repository, not files already available to clone.
+**Current status: Beta / personal setup.** The actual configuration files are now published, but this export **has not been verified on a clean installation**. Review compatibility and paths before trying it.
 
-## 🧩 Desktop stack
+## Components
 
 | Component | Purpose |
-| --- | --- |
-| **Hyprland (Lua)** | Window management, rules, bindings, animations |
-| **Waybar** | Top status bar and system modules |
-| **Rofi** | App launcher, power menu, wallpaper picker, control center |
-| **Hyprlock + Hypridle** | Lock screen and idle handling |
-| **Hyprpaper** | Wallpaper management |
-| **SwayNC** | Notifications |
-| **SwayOSD** | Volume and brightness on-screen feedback |
-| **Hyprsunset** | Scheduled night-light profiles |
-| **Kitty** | Terminal |
-| **Fastfetch** | System summary |
-| **Satty** | Screenshot annotation |
-| **SDDM Astronaut** | Login screen theme (third-party dependency, not bundled) |
+|---|---|
+| Hyprland (Lua) | Window manager, bindings and rules |
+| Waybar | Top bar, workspaces and system information |
+| Rofi | App launcher, power menu, wallpaper and clipboard pickers, control center |
+| Hyprlock + Hypridle | Lock screen and idle management |
+| Hyprpaper | Wallpapers |
+| SwayNC + SwayOSD | Notifications, volume and brightness OSD |
+| Hyprsunset | Night light |
+| Kitty + Fastfetch | Terminal and system summary |
+| Satty | Screenshot annotation |
 
-## ⌨️ Keybindings
+The Control Center (`SUPER + D`) includes **Wi-Fi, Bluetooth, volume and Night Light**. Brightness uses multimedia keys with SwayOSD.
 
-The following are from my current setup; mappings may change as I publish the actual files.
+## Preview
+
+Screenshots will be added soon. Real wallpapers, SDDM Astronaut, fonts, and third-party assets are not bundled.
+
+## Shortcuts
 
 | Shortcut | Action |
-| --- | --- |
-| `SUPER + A` | Application launcher |
-| `SUPER + T` | Kitty terminal |
-| `SUPER + E` | File manager |
+|---|---|
+| `SUPER + A` | App launcher |
+| `SUPER + T` | Kitty |
+| `SUPER + E` | File manager (Dolphin) |
 | `SUPER + M` | Power menu |
-| `SUPER + D` | Rofi control center |
+| `SUPER + D` | Control center |
 | `SUPER + W` | Wallpaper picker |
 | `SUPER + V` | Clipboard picker |
 | `SUPER + SHIFT + V` | Toggle floating |
-| `SUPER + SHIFT + C` | Screenshot and annotation |
-| `SUPER + SPACE` | Toggle US / Latin American keyboard layouts |
+| `SUPER + SHIFT + C` | Screenshot editor |
+| `SUPER + SPACE` | US / Latin American keyboard switch |
 | `SUPER + L` | Lock screen |
 
-## 🗂️ Planned layout
+## Repository structure
 
 ```text
-r3tr0-dotfiles/
-├── .config/
-│   ├── hypr/
-│   │   ├── hyprland.lua
-│   │   ├── hyprlock.conf
-│   │   ├── hypridle.conf
-│   │   ├── hyprsunset.conf
-│   │   └── scripts/
-│   ├── waybar/
-│   ├── rofi/
-│   ├── swaync/
-│   ├── kitty/
-│   └── fastfetch/
-├── screenshots/
-├── wallpapers/
-└── docs/
-    └── SETUP.md
+.config/
+├── fastfetch/
+├── hypr/             # Lua config, lock, idle, sunset, scripts
+├── kitty/
+├── rofi/             # Launcher, Control Center, wallpaper, clipboard, power
+├── swaync/
+└── waybar/
+docs/
+├── SETUP.md
+└── INSTALACION.md
+README.md
+README.es.md
 ```
 
-## 📦 Installation
+## Installation / requirements
 
-**Not available yet.** Once the configurations have been reviewed and uploaded, see [setup notes](docs/SETUP.md). No automatic installer is provided at this stage.
+Read [Setup (English)](docs/SETUP.md) before copying files. **Do not blindly replace your existing `~/.config`.** You must adapt wallpaper paths, font names, external dependencies and the Hyprland Lua API version.
 
-## 🔐 Privacy and safety
+## Known limitations
 
-Dotfiles can contain device-specific paths, network names, personal details, API keys, and secrets. Files will be reviewed before publication. **Never commit your home-directory secrets or Wi-Fi credentials.**
+- Some paths contain `/home/YOUR_USER/`; adjust them for your account.
+- Wallpapers are not included. The wallpaper picker currently looks in `~/Pictures/Wallpappers/wallpapers` (note the folder spelling).
+- Font/icon dependencies and the third-party SDDM theme are not bundled.
+- No verified automated installer or clean-system test yet.
+- `.gitignore` reduces accidental uploads but is **not** a credential scanner; review changes before pushing.
 
-Third-party themes, icons, fonts, and wallpapers remain subject to their original licenses and should be installed or attributed separately. They are not automatically included in this repository.
+## Roadmap
 
-## 📸 Screenshots
+- [x] Publish sanitized desktop configurations
+- [x] English and Spanish project documentation
+- [ ] Screenshots and wallpaper credits
+- [ ] Clean-system installation test
+- [ ] Dependency validation and optional installer
+- [ ] Optional widgets and further UI polish
 
-*Coming soon — screenshots will be added once the repository matches the running desktop.*
+## Credits
 
-## 🛠️ Roadmap
+Built with 💜 on Arch Linux by [@Ray1172004](https://github.com/Ray1172004). External themes, icons and fonts belong to their respective authors and licenses. See [LICENSE](LICENSE) for this repository's license.
 
-- [x] Create repository and project documentation
-- [ ] Review and publish real desktop configurations
-- [ ] Add screenshots and wallpaper credits
-- [ ] Document dependencies and manual installation
-- [ ] Test installation in a clean user account / virtual machine
-- [ ] Optional dashboard and music widgets
-
----
-
-<div align="center">
-
-Made with 💜 on Arch Linux · [@Ray1172004](https://github.com/Ray1172004)
-
-</div>

@@ -1,27 +1,38 @@
-# Setup notes
+# Installation notes (English)
 
-> **Current status:** This repository contains documentation only. Do not follow these notes as installation instructions until the real configuration files have been uploaded and verified.
+[English](SETUP.md) · [Español](INSTALACION.md)
 
-## Requirements (planned)
+> **Beta:** The real dotfiles are published, but they have not been tested on a clean Arch Linux installation. These instructions describe a **manual, selective review**, not a verified automatic installer.
 
-- Arch Linux, a compatible Wayland session and Hyprland with the same Lua configuration interface used by these dotfiles.
-- Rofi, Waybar, Kitty, Hyprlock, Hypridle, Hyprpaper, SwayNC, SwayOSD, Hyprsunset, Satty, Fastfetch, and required fonts/icons.
-- Additional optional integrations such as NetworkManager (`nmcli`), Blueman, `brightnessctl`, `wpctl`, `cliphist`, and `playerctl`.
+## Dependencies
 
-**Compatibility warning:** Not every Hyprland release supports the same Lua configuration syntax or window-rule API. Check versions before using any published config.
+Main stack: Arch Linux, a Hyprland release supporting the Lua configuration API used in `.config/hypr/hyprland.lua`, Waybar, Rofi, Kitty, Hyprlock, Hypridle, Hyprpaper, Hyprsunset, SwayNC, SwayOSD, Satty and Fastfetch.
 
-## Before copying any dotfiles
+The scripts also reference `nmcli` (NetworkManager), `bluetoothctl`, `blueman-manager`, `pavucontrol`, `swayosd-client`, `playerctl`, `wl-clipboard`, `cliphist`, `python3` and other command-line tools. Check the scripts for the full dependency list. Use a Nerd Font (the lock screen refers to JetBrainsMono Nerd Font).
 
-1. Back up `~/.config` (or at minimum each target application folder).
-2. Review paths, monitor settings, installed apps, binaries, and shell scripts.
-3. Never overwrite your current config blindly.
-4. Apply components individually, validating each one.
-5. Review the repository's scripts before running them.
+## Clone and inspect
 
-## For contributors / local backups
+```bash
+git clone https://github.com/Ray1172004/r3tr0-dotfiles.git
+cd r3tr0-dotfiles
+find .config -type f | sort
+```
 
-The author's working configurations will be added from a reviewed, sanitized export of the actual machine. Do **not** upload all of `~/.config` recursively: it often includes application databases, saved sessions, tokens, and private information.
+Before copying **anything**, back up your existing `~/.config`. Inspect each script and copy **one component at a time**.
 
-## Third-party assets
+## Adapt your environment
 
-SDDM Astronaut, fonts, icon packs, and wallpapers must be acquired from their original sources according to their licenses. This repository does not claim ownership of those resources.
+1. Replace the literal `/home/YOUR_USER/` values in the Hyprpaper, Hyprlock and Waybar files.
+2. Supply your own wallpaper files and update `hyprpaper.conf` and `hyprlock.conf`.
+3. The picker expects `~/Pictures/Wallpappers/wallpapers`. Change that path in `.config/rofi/wallpaper/wallpaper_picker.py` if yours differs.
+4. Check monitor names, preferred applications and keyboard layout.
+5. Verify your Hyprland build supports **Lua** and the window rules used here; do not assume standard hyprlang syntax works.
+6. Review third-party Rofi themes, SDDM theme, fonts, and icons separately.
+
+## Validate
+
+After **selective** copying, check Bash scripts with `bash -n`, Python scripts with `python -m py_compile` and Lua syntax with `luac -p`. Syntax checks do not guarantee runtime compatibility.
+
+## Privacy and licenses
+
+Never copy private keys, passwords, tokens, connection profiles, or unreviewed `~/.config` folders into a public repository. External wallpapers, fonts and themes are not provided and retain their own authorship/licensing.

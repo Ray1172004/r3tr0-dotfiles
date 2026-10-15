@@ -1,0 +1,42 @@
+# Secrets, credentials and personal data
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.kdbx
+*credentials*
+*secrets*
+*token*
+*password*
+id_rsa*
+id_ed25519*
+*.ovpn
+
+# Local OS and generated files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+__pycache__/
+*.pyc
+.cache/
+.local/
+.ssh/
+.gnupg/
+.config/gh/
+.config/NetworkManager/
+.config/google-chrome/
+.config/chromium/
+.config/mozilla/
+.config/Code/User/globalStorage/
+
+# Screenshots and wallpapers must be deliberately selected for sharing
+screenshots/raw/
+wallpapers/private/

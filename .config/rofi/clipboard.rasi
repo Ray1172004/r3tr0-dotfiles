@@ -1,0 +1,50 @@
+@import "ray-dark.rasi"
+
+configuration {
+    font: "JetBrainsMono Nerd Font 10";
+}
+
+window {
+    width: 440px;
+    height: 530px;
+    padding: 16px;
+    border-radius: 15px;
+}
+
+mainbox {
+    spacing: 12px;
+}
+
+inputbar {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+prompt {
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+entry {
+    placeholder: "Buscar en historial...";
+}
+
+listview {
+    columns: 1;
+    lines: 7;
+    spacing: 5px;
+    fixed-height: true;
+}
+
+element {
+    padding: 8px;
+    spacing: 8px;
+    border-radius: 8px;
+}
+
+element-icon {
+    size: 20px;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 10";
+}

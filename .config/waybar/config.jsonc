@@ -1,0 +1,153 @@
+{
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "reload_style_on_change": true,
+  "height": 30,
+  "spacing": 0,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+  "margin-bottom": 0,
+  "modules-left": [
+    "custom/arch",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "mpris",
+    "custom/cava",
+    "cpu",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "battery",
+    "custom/notification",
+    "hyprland/language",
+    "custom/power"
+  ],
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip-format": "Arch Linux",
+    "on-click": "kitty"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "󰖯 {title}",
+    "max-length": 20,
+    "separate-outputs": false
+  },
+  "clock": {
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃭 {:%A %d de %B · %H:%M}",
+    "tooltip-format": "<span>{calendar}</span>"
+  },
+  "mpris": {
+    "format": "󰐊 {artist} - {title}",
+    "format-playing": "󰏤 {artist} - {title}",
+    "format-paused": "󰐊 {artist} - {title}",
+    "max-length": 24,
+    "tooltip-format": "{player}: {artist} - {title}\n{status}",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous"
+  },
+  "cpu": {
+    "interval": 3,
+    "format": "󰍛 {usage}%",
+    "tooltip-format": "Uso del procesador: {usage}%",
+    "on-click": "kitty -o font_size=9 -e btop"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "Bluetooth",
+    "on-click": "blueman-manager"
+  },
+  "pulseaudio": {
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰝟",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "network": {
+    "format": "󰖪",
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid}\nSeñal: {signalStrength}%",
+    "on-click": "nm-connection-editor"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "interval": 10,
+    "states": {
+      "warning": 25,
+      "critical": 10
+    }
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 6
+  },
+  "custom/cava": {
+    "exec": "/home/YOUR_USER/.config/waybar/scripts/cava.py",
+    "format": "{}",
+    "tooltip": false,
+    "hide-empty-text": true,
+    "max-length": 12
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip-format": "Menú de energía",
+    "on-click": "/home/YOUR_USER/.config/rofi/powermenu-ray/powermenu.sh"
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚",
+      "none": "󰂜",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec": "swaync-client --subscribe-waybar",
+    "on-click": "swaync-client --toggle-panel",
+    "on-click-right": "swaync-client --toggle-dnd",
+    "escape": true
+  },
+  "hyprland/language": {
+    "format": "󰌌 {}",
+    "format-us": "US",
+    "format-latam": "EC",
+    "on-click": "hyprctl switchxkblayout all next",
+    "tooltip": false
+}
+}

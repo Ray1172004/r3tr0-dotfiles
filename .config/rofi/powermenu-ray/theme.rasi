@@ -1,0 +1,77 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 12";
+    show-icons: false;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    bg: #11111bf2;
+    card: #242438;
+    fg: #e7e4f4;
+    accent: #b49aff;
+    selected: #382d58;
+    transparent: #00000000;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 760px;
+    background-color: @bg;
+    border: 1px;
+    border-color: #66518c;
+    border-radius: 18px;
+    padding: 22px;
+}
+
+mainbox {
+    background-color: @transparent;
+    children: [ inputbar, listview ];
+    spacing: 20px;
+}
+
+inputbar {
+    background-color: @transparent;
+    children: [ prompt ];
+}
+
+prompt {
+    background-color: @transparent;
+    text-color: @accent;
+    horizontal-align: 0.5;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+listview {
+    background-color: @transparent;
+    columns: 5;
+    lines: 1;
+    spacing: 10px;
+    fixed-height: true;
+    scrollbar: false;
+}
+
+element {
+    background-color: @card;
+    text-color: @fg;
+    orientation: horizontal;
+    border-radius: 12px;
+    padding: 16px 7px;
+    spacing: 5px;
+}
+
+element-text {
+    background-color: @transparent;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @accent;
+    border: 1px;
+    border-color: @accent;
+}

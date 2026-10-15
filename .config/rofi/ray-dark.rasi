@@ -1,0 +1,90 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    drun-display-format: "{name}";
+    font: "DejaVu Sans 11";
+}
+
+* {
+    bg:             #11111bf2;
+    bg-alt:         #242438;
+    fg:             #e6e6f0;
+    accent:         #8b5cf6;
+    selected:       #30264b;
+    transparent:    #00000000;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 650px;
+    height: 480px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 18px;
+    padding: 22px;
+}
+
+mainbox {
+    background-color: @transparent;
+    spacing: 18px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 12px;
+    padding: 13px;
+    children: [ prompt, entry ];
+    spacing: 10px;
+}
+
+prompt {
+    background-color: @transparent;
+    text-color: @accent;
+    str: "Apps";
+}
+
+entry {
+    background-color: @transparent;
+    text-color: @fg;
+    placeholder: "Buscar aplicación...";
+    placeholder-color: #888899;
+}
+
+listview {
+    background-color: @transparent;
+    columns: 2;
+    lines: 5;
+    spacing: 8px;
+    fixed-height: true;
+    scrollbar: false;
+}
+
+element {
+    background-color: @bg-alt;
+    text-color: @fg;
+    orientation: horizontal;
+    padding: 10px;
+    spacing: 12px;
+    border-radius: 10px;
+}
+
+element-icon {
+    background-color: @transparent;
+    size: 30px;
+}
+
+element-text {
+    background-color: @transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @fg;
+    border: 1px;
+    border-color: @accent;
+}
